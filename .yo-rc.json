@@ -1,0 +1,9 @@
+{
+  "generator-node": {
+    "promptValues": {
+      "authorName": "Martin Moreira",
+      "authorEmail": "m@codetry.io",
+      "authorUrl": "martin.com.ar"
+    }
+  }
+}

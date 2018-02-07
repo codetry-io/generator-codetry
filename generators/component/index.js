@@ -51,9 +51,8 @@ module.exports = fountain.Base.extend({
       id: lowerCase(this.props.id)
     };
     var nombre = lowerCase(this.props.nombreSingular);
-    // This.copyTemplate(`src/app/component.html`, `src/${path}/${name}.html`, props);
-    // this.copyTemplate(`src/app/component.js`, `src/${path}/${name}.js`, props);
+
     this.copyTemplate(`./component-main.ts`, `${nombre}-main.ts`, propsEditadas);
-    // This.copyTemplate(`src/app/component.spec.js`, `src/${path}/${name}.spec.js`, props);
+    this.copyTemplate(`./component-add.ts`, `${nombre}-add.ts`, propsEditadas);
   }
 });

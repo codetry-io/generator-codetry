@@ -8,7 +8,7 @@ import { <%- modelo %>Service } from '../../_shared/services/<%- componentName %
   styleUrls: ['./<%- componentName %>-main.component.css']
 })
 export class <%- modelo %>MainComponent implements OnInit {
-    
+
   public <%- componentNamePlural %>: <%- modelo %>Interface[] = [];
   public <%- componentName %>Selected: <%- modelo %>Interface = null;
 
@@ -19,11 +19,12 @@ export class <%- modelo %>MainComponent implements OnInit {
   ngOnInit() {
     this.find();
   }
+  
 
   find() {
     this.<%- componentName %>Service.find()
-      .subscribe(<%- componentName %>s => {
-        this.<%- componentNamePlural %> = <%- componentName %>s.slice();
+      .subscribe(<%- componentNamePlural %> => {
+        this.<%- componentNamePlural %> = <%- componentNamePlural %>.slice();
       })
   }
 
@@ -32,14 +33,14 @@ export class <%- modelo %>MainComponent implements OnInit {
   }
 
   onCreated(<%- componentName %>: <%- modelo %>Interface) {
-    this.<%- componentName %>s.push(<%- componentName %>);
+    this.<%- componentNamePlural %>.push(<%- componentName %>);
   }
 
   OnEdit(<%- componentName %>Updated: <%- modelo %>Interface) {
-    const indice = this.<%- componentName %>s.findIndex((tipo) => tipo.id === <%- componentName %>Updated.id);
+    const indice = this.<%- componentNamePlural %>.findIndex((tipo) => tipo.id === <%- componentName %>Updated.id);
 
     if (indice !== -1) {
-      this.<%- componentName %>s[indice] = <%- componentName %>Updated;
+      this.<%- componentNamePlural %>[indice] = <%- componentName %>Updated;
     } else { }
   }
 

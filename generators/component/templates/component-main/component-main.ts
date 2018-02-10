@@ -1,19 +1,19 @@
 import { Component, OnInit } from '@angular/core';
-import { <%- modelo %>Interface } from '../../_shared/models/<%- componentName %>';
-import { <%- modelo %>Service } from '../../_shared/services/<%- componentName %>.service';
+import { <%- model %>Interface } from '../../_shared/models/<%- componentName %>';
+import { <%- model %>Service } from '../../_shared/services/<%- componentName %>.service';
 
 @Component({
   selector: 'app-<%- componentName %>-main',
   templateUrl: './<%- componentName %>-main.component.html',
   styleUrls: ['./<%- componentName %>-main.component.css']
 })
-export class <%- modelo %>MainComponent implements OnInit {
+export class <%- model %>MainComponent implements OnInit {
 
-  public <%- componentNamePlural %>: <%- modelo %>Interface[] = [];
-  public <%- componentName %>Selected: <%- modelo %>Interface = null;
+  public <%- componentNamePlural %>: <%- model %>Interface[] = [];
+  public <%- componentName %>Selected: <%- model %>Interface = null;
 
   constructor(
-    private <%- componentName %>Service: <%- modelo %>Service
+    private <%- componentName %>Service: <%- model %>Service
   ) { }
 
   ngOnInit() {
@@ -25,18 +25,23 @@ export class <%- modelo %>MainComponent implements OnInit {
     this.<%- componentName %>Service.find()
       .subscribe(<%- componentNamePlural %> => {
         this.<%- componentNamePlural %> = <%- componentNamePlural %>.slice();
-      })
+      },
+      (error) => {
+        console.log('An error occured at <%- model %>-main component');
+        console.log(error);
+      }
+    );
   }
 
   select(<%- componentName %>) {
     this.<%- componentName %>Selected = Object.assign({}, <%- componentName %>);
   }
 
-  onCreated(<%- componentName %>: <%- modelo %>Interface) {
+  onCreated(<%- componentName %>: <%- model %>Interface) {
     this.<%- componentNamePlural %>.push(<%- componentName %>);
   }
 
-  OnEdit(<%- componentName %>Updated: <%- modelo %>Interface) {
+  OnEdit(<%- componentName %>Updated: <%- model %>Interface) {
     const indice = this.<%- componentNamePlural %>.findIndex((tipo) => tipo.id === <%- componentName %>Updated.id);
 
     if (indice !== -1) {

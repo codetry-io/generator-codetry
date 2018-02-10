@@ -16,18 +16,18 @@ module.exports = fountain.Base.extend({
     const prompts = [
       {
         type: 'input',
-        name: 'nombreSingular',
-        message: 'Cual es el nombre del modelo en singular?'
+        name: 'nameSingular',
+        message: 'Model name?'
       },
       {
         type: 'input',
-        name: 'nombrePlural',
-        message: 'Cual es el nombre del modelo en plural?'
+        name: 'namePlural',
+        message: 'Plural model name?'
       },
       {
         type: 'input',
         name: 'id',
-        message: 'Cual es el id del modelo?',
+        message: 'Model id?',
         default: 'id'
       }
     ];
@@ -44,15 +44,46 @@ module.exports = fountain.Base.extend({
     const lowerCase = string => string.charAt(0).toLowerCase() + string.slice(1);
     // Const path = this.options.dir ? `app/${this.options.dir}` : `app`;
     const propsEditadas = {
-      componentName: lowerCase(this.props.nombreSingular),
-      componentNamePlural: lowerCase(this.props.nombrePlural),
-      modelo: titleCase(lowerCase(this.props.nombreSingular)),
-      modeloPlural: titleCase(lowerCase(this.props.nombrePlural)),
+      componentName: lowerCase(this.props.nameSingular),
+      componentNamePlural: lowerCase(this.props.namePlural),
+      model: titleCase(lowerCase(this.props.nameSingular)),
+      modelPlural: titleCase(lowerCase(this.props.namePlural)),
       id: lowerCase(this.props.id)
     };
-    var nombre = lowerCase(this.props.nombreSingular);
+    var name = lowerCase(this.props.nameSingular);
 
-    this.copyTemplate(`./component-main.ts`, `${nombre}-main.ts`, propsEditadas);
-    this.copyTemplate(`./component-add.ts`, `${nombre}-add.ts`, propsEditadas);
+    // Main Component
+    this.copyTemplate(
+      `./component-main/component-main.ts`,
+      `./${name}/component-main/${name}-main.ts`,
+      propsEditadas
+    );
+    this.copyTemplate(
+      `./component-main/component-main.html`,
+      `./${name}/component-main/${name}-main.html`,
+      propsEditadas
+    );
+    this.copyTemplate(
+      `./component-main/component-main.css`,
+      `./${name}/component-main/${name}-main.css`,
+      propsEditadas
+    );
+
+    // Add Component
+    this.copyTemplate(
+      `./component-add/component-add.ts`,
+      `./${name}/component-add/${name}-add.ts`,
+      propsEditadas
+    );
+    this.copyTemplate(
+      `./component-add/component-add.html`,
+      `./${name}/component-add/${name}-add.html`,
+      propsEditadas
+    );
+    this.copyTemplate(
+      `./component-add/component-add.css`,
+      `./${name}/component-add/${name}-add.css`,
+      propsEditadas
+    );
   }
 });

@@ -16,17 +16,43 @@ Then generate your new project:
 yo codetry
 ```
 
-## Getting To Know Yeoman
+## Important
+This generator assumes the following structure:
 
- * Yeoman has a heart of gold.
- * Yeoman is a person with feelings and opinions, but is very easy to work with.
- * Yeoman can be too opinionated at times but is easily convinced not to be.
- * Feel free to [learn more about Yeoman](http://yeoman.io/).
+```bash
+src/app/
+  shared/
+    services/
+        modelA.service.ts
+        ...
+    models/
+        modelA.ts
+        ...
 
-## License
+  modelA/
+    modelA.module.ts
+    componentA-main/
+        component-main.component.ts
+        component-main.component.html
+        component-main.component.css
+    componentA-add/
+        component-add.component.ts
+        component-add.component.html
+        component-add.component.css
 
-MIT © [Martin Moreira](martin.com.ar)
+```    
 
+## Usage
+
+### Component generator
+
+The generator will ask the model name and id. Then, it will generate a module, wich includes 'main' and 'add' components.
+'main' component goal is to list all objects of 'model' type and let the user add new ones.
+The module only exports the 'main' component, and provides the model service. 
+
+```bash
+yo codetry:component
+```
 
 [npm-image]: https://badge.fury.io/js/generator-codetry.svg
 [npm-url]: https://npmjs.org/package/generator-codetry

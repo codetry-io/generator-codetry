@@ -52,37 +52,44 @@ module.exports = fountain.Base.extend({
     };
     var name = lowerCase(this.props.nameSingular);
 
+    // Module
+    this.copyTemplate(
+      `./component.module.ts`,
+      `./${name}/${name}.module.ts`,
+      propsEditadas
+    );
+
     // Main Component
     this.copyTemplate(
       `./component-main/component-main.ts`,
-      `./${name}/component-main/${name}-main.ts`,
+      `./${name}/${name}-main/${name}-main.component.ts`,
       propsEditadas
     );
     this.copyTemplate(
       `./component-main/component-main.html`,
-      `./${name}/component-main/${name}-main.html`,
+      `./${name}/${name}-main/${name}-main.component.html`,
       propsEditadas
     );
     this.copyTemplate(
       `./component-main/component-main.css`,
-      `./${name}/component-main/${name}-main.css`,
+      `./${name}/${name}-main/${name}-main.component.css`,
       propsEditadas
     );
 
     // Add Component
     this.copyTemplate(
       `./component-add/component-add.ts`,
-      `./${name}/component-add/${name}-add.ts`,
+      `./${name}/${name}-add/${name}-add.component.ts`,
       propsEditadas
     );
     this.copyTemplate(
       `./component-add/component-add.html`,
-      `./${name}/component-add/${name}-add.html`,
+      `./${name}/${name}-add/${name}-add.component.html`,
       propsEditadas
     );
     this.copyTemplate(
       `./component-add/component-add.css`,
-      `./${name}/component-add/${name}-add.css`,
+      `./${name}/${name}-add/${name}-add.component.css`,
       propsEditadas
     );
   }

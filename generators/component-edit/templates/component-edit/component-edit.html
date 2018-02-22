@@ -1,0 +1,11 @@
+<div>
+  <h2>Editar <%- model %></h2>
+
+  <div>
+    <label>Nombre: </label>
+    <input type="text" [(ngModel)]='<%- componentName %>.nombre' placeholder="<%- componentName %>">
+  </div>
+
+  <button (click)='update()'>Guardar</button>
+  <button (click)='cancelar()'>Cancelar</button>
+</div>

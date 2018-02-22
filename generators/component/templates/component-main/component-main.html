@@ -1,23 +1,27 @@
 <div>
-    <h1> <%- model %> Main </h1>
-  
-    <!-- Add component -->
-    <app-<%- componentName %>-add (onCreated)='onCreated($event)'></app-<%- componentName %>-add>
-  
-    <!-- List -->
-    <h2><%- modelPlural %></h2>
-    <div *ngFor="let <%- componentName %> of <%- componentNamePlural %>" (click)='select(<%- componentName %>)'>
-    </div>
-  
-    <br/>
-  
-    <!-- Edit component -->
-    <div>
+  <h1>
+    <%- model %> Main </h1>
+
+  <!-- Add component -->
+  <app-<%- componentName %>-add (onCreated)='onCreated($event)'></app-<%- componentName %>-add>
+
+  <!-- List -->
+  <h2>
+    <%- modelPlural %>
+  </h2>
+  <div *ngFor="let <%- componentName %> of <%- componentNamePlural %>" (click)='select(<%- componentName %>)'>
+  </div>
+
+  <br/>
+
+  <!-- Edit component
+   <div>
       <app-<%- componentName %>-edit
       *ngIf = "<%- componentName %>Selected"
       [<%- componentName %>Original] = "<%- componentName %>Selected"
       (<%- componentName %>Updated) = "OnEdit($event)"
       ></app-<%- componentName %>-edit>
-    </div>
-  
-  </div>
+    </div> 
+  -->
+
+</div>

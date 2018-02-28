@@ -12,7 +12,20 @@ module.exports = fountain.Base.extend({
   // idDefault: nameSingular en plural
   getModelName() {
     this.log(yosay('Welcome to the fantabulous ' + chalk.red('generator-codetry')));
+        this.log(chalk.cyan(`
+    codetrycodet                  codetrycodet    
+ codet        code             codet        codet 
+cod              c          codet              cod
+co                       codetr                 co
+co                    codetr                    co
+co                  codet                       co
+cod              codet          c              cod
+ codet        codet             code        codet 
+    codetrycodet                  codetryccodet
 
+                     CODETRY
+      `))
+        
     const prompts = [
       {
         type: 'input',

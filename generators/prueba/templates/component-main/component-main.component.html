@@ -1,0 +1,27 @@
+<div>
+  <h1>
+    <%- upperName %> Main </h1>
+
+  <!-- Add component -->
+  <app-<%- lowerName %>-add (onCreated)='onCreated($event)'></app-<%- lowerName %>-add>
+
+  <!-- List -->
+  <h2>
+    <%- upperNamePlural %>
+  </h2>
+  <div *ngFor="let <%- lowerName %> of <%- lowerNamePlural %>" (click)='select(<%- lowerName %>)'>
+  </div>
+
+  <br/>
+
+  <!-- Edit component
+   <div>
+      <app-<%- lowerName %>-edit
+      *ngIf = "<%- lowerName %>Selected"
+      [<%- lowerName %>Original] = "<%- lowerName %>Selected"
+      (<%- lowerName %>Updated) = "OnEdit($event)"
+      ></app-<%- lowerName %>-edit>
+    </div> 
+  -->
+
+</div>
